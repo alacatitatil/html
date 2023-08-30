@@ -1,0 +1,47 @@
+    @media only screen and (max-width: 600px) {
+      .footer-company-logos {
+        display: flex;
+        justify-content: center;
+      }
+
+      .footer-bottom-section {
+        display: flex;
+        justify-content: center !important;
+      }
+    }
+
+    #copyRight p,
+    #copyRight a,
+    .footer-logos-section p {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .footer-company-logos img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      background: #fff;
+      margin-right: 8px;
+      border-radius: 12px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+
+    .social-icons-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-icons-footer i {
+      font-size: 20px;
+      color: #fff;
+      margin-right: 8px;
+    }
+
+    .grecaptcha-badge {
+      visibility: hidden;
+    }
