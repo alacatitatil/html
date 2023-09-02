@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="katman_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:#FFFFFF;}
+	.st3{font-family:'Metropolis-Bold';}
+	.st4{font-size:39.5709px;}
+</style>
+<g>
+	<g>
+		<g>
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="150" y1="7" x2="150" y2="292.975" gradientTransform="matrix(1 0 0 -1 0 300)">
+				<stop  offset="0" style="stop-color:#00B59C"/>
+				<stop  offset="1" style="stop-color:#9CFFAC"/>
+			</linearGradient>
+			<path class="st0" d="M250.5,52.6c-46.4,0-94.4-43-94.9-43.4c-3.2-2.9-8.1-2.9-11.3,0C143.9,9.6,96,52.6,49.5,52.6
+				c-4.6,0-8.4,3.8-8.4,8.4v100.3c0,81.3,60.5,113.8,105.9,131.1c1,0.4,2,0.6,3,0.6s2-0.2,3-0.6c63.8-24.3,105.9-62.3,105.9-131.1
+				V61C258.9,56.3,255.2,52.6,250.5,52.6z"/>
+		</g>
+	</g>
+</g>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="104.7251" y1="111.4339" x2="195.2749" y2="111.4339">
+	<stop  offset="0" style="stop-color:#C3FFE8"/>
+	<stop  offset="0.9973" style="stop-color:#F0FFF4"/>
+</linearGradient>
+<path class="st1" d="M184,96.3h-3.8V81.3c0-16.6-13.5-30.2-30.2-30.2s-30.2,13.5-30.2,30.2v15.1H116c-6.2,0-11.3,5.1-11.3,11.3v52.8
+	c0,6.2,5.1,11.3,11.3,11.3H184c6.2,0,11.3-5.1,11.3-11.3v-52.8C195.3,101.4,190.2,96.3,184,96.3z M129.9,81.3
+	c0-11.1,9-20.1,20.1-20.1s20.1,9,20.1,20.1v15.1h-40.2V81.3z M155,135.2v11.5c0,2.8-2.2,5-5,5s-5-2.3-5-5v-11.5c-3-1.7-5-5-5-8.7
+	c0-5.5,4.5-10.1,10.1-10.1s10.1,4.5,10.1,10.1C160.1,130.2,158,133.4,155,135.2z"/>
+<text transform="matrix(1 0 0 1 69.9883 219.2627)" class="st2 st3 st4">SECURE</text>
+</svg>

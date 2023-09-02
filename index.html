@@ -207,580 +207,1348 @@
 		</div>
 	</nav>
 
-	<section class="mt-2">
+	<div class="payment-form">
 		<div class="container">
-			<div class="row flex-center">
-				<ul class="ml-3 search-btn-list" style="cursor:pointer;">
-					<li class="search-box-item float-item" onclick="changeSBO()"><i class="fa-solid fa-hotel"></i> OTEL
-					</li>
-					<li class="search-box-item float-item" onclick="changeSBV()"><i class="fa-solid fa-house"></i> VİLLA
-					</li>
-					<li class="search-box-item float-item"><a href="/tekneler" title="TEKNE"><i
-								class="fa-solid fa-ship"></i>
-							TEKNE</a></li>
-					<li class="search-box-item float-item"><a href="/alacati-arac-kiralama" title="transferler"><i
-								class="fa-solid fa-car"></i> ARAÇ KİRALAMA</a></li>
-					<!-- <li class="search-box-item float-item">UÇAK</li> -->
-					<li class="search-box-item float-item"><a href="/mice" title="MICE"><i
-								class="fa-solid fa-handshake"></i>
-							MICE</a></li>
-				</ul>
-				<div class="inputTabs w-100" role="tablist">
-					<div class="inputArea tab-content mt-2 ml-3">
-						<div class="inputGroup">
-							<form action="" id="search_otels_date_form" class="search-dateform">
-								<ul>
-									<li>
-										<div class="inputSec">
-											<div class="inputIcon"><i class="fas fa-route"></i></div>
-											<div class="inputSelect" style="position:relative;">
-												<input class="search-input place" id="search-input" type="text"
-													name="place" placeholder="Nereye gitmek istersin?" readonly />
-											</div>
-											<div class="autocomplete-result" id="otel_box">
-												<ul class="hotel-popular-list" id="location">
-													<li class="li-search-theme" data-parent="Alaçatı Oteli">
-														<span>Alaçatı Oteli</span> <i
-															class="suffix-icon etsfonticon etsfonticon-arrow-right"></i>
-													</li>
-												</ul>
-
-												<ul class="hotel-popular-list" id="location_2">
-													<li class="li-search-theme" data-parent="Alaçatı Oteli">
-														<span>Alaçatı Oteli</span> <i
-															class="suffix-icon etsfonticon etsfonticon-arrow-right"></i>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</li>
-									<li class="inputsec-cikis">
-										<div class="inputSec">
-											<div class="inputSelect">
-												<div class="login-exit-input">
-													<span class="giris-input">Giriş -</span>
-													<span>Çıkış Tarihi</span>
-												</div>
-												<div class="input-group date datepickerClass">
-													<input type="text" id="from_start_date" class="form-control1"
-														value="" name="value_from_start_date"
-														data-datepicker="separateRange" placeholder="Giriş Tarihi"
-														readonly required />
-													<div class="inputIcon"><i class="fas fa-calendar-alt"></i></div>
-													<input type="text" id="from_end_date" class="form-control1" value=""
-														name="value_from_end_date" data-datepicker="separateRange"
-														placeholder="Çıkış Tarihi" readonly required disabled />
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="inputSec">
-											<div class="inputIcon"><i class="fas fa-bed"></i></div>
-											<div class="inputSelect" style="position:relative;">
-												<input class="search-input" id="otel_kisi_txt" type="text" name="place"
-													placeholder="2 kişi" readonly />
-											</div>
-											<div class="autocomplete-result" id="otel_kisi_box">
-												<div class="hotel-popular-list" style="padding:20px;">
-
-													<div class="mb-3">
-														<label>Yetişkin Sayısı</label>
-														<div class="kisi_box">
-															<button type="button" class="kisi_btn_active"
-																id="ok_min_btn"
-																onclick="changeadultNumber(action = 'substraction')"><i
-																	class="fas fa-minus"></i></button>
-															<div class="kisi_box_input_content">
-																<input class="kisi_box_input"
-																	value="<?php echo $numberOfAdult ?>"
-																	id="otel_kisi_sayisi" name="otel_kisi_sayisi">
-															</div>
-															<button type="button" class="kisi_btn_active"
-																id="ok_max_btn"
-																onclick="changeadultNumber(action = 'add')"><i
-																	class="fas fa-plus"></i></button>
-														</div>
-													</div>
-
-													<div class="mb-3">
-														<label>Çocuk Sayısı</label>
-														<div class="kisi_box">
-															<button type="button" class="kisi_btn_active"
-																id="oc_min_btn"
-																onclick="changechildNumber(action = 'substraction')"><i
-																	class="fas fa-minus"></i></button>
-															<div class="kisi_box_input_content">
-																<input class="kisi_box_input"
-																	value="<?php echo $queryStringData['numberOfChildren'] ?>"
-																	id="otel_cocuk_sayisi" name="otel_cocuk_sayisi">
-															</div>
-															<button type="button" class="kisi_btn_active"
-																id="oc_max_btn"
-																onclick="changechildNumber(action = 'add')"><i
-																	class="fas fa-plus"></i></button>
-
-														</div>
-													</div>
-													<script type="text/javascript">
-														var separator = ' - ',
-															dateFormat = 'DD.MM.YYYY';
-														var options = {
-															autoUpdateInput: false,
-															autoApply: true,
-															locale: {
-																format: dateFormat,
-																separator: separator,
-																"daysOfWeek": [
-																	"Pz",
-																	"Pt",
-																	"Sl",
-																	"Çr",
-																	"Pr",
-																	"Cm",
-																	"Ct"
-																],
-																"monthNames": [
-																	"Ocak",
-																	"Şubat",
-																	"Mart",
-																	"Nisan",
-																	"Mayıs",
-																	"Haziran",
-																	"Temmuz",
-																	"Ağustos",
-																	"Eylül",
-																	"Ekim",
-																	"Kasım",
-																	"Aralık"
-																],
-															},
-															minDate: moment().add(0, 'days'),
-															maxDate: moment().add(365, 'days'),
-															opens: "right",
-
-														};
-
-
-														$('[data-datepicker=separateRange]')
-															.daterangepicker(options)
-															.on('apply.daterangepicker', function (ev, picker) {
-																var boolStart = this.name.match(/value_from_start_/g) == null ? false : true;
-																var boolEnd = this.name.match(/value_from_end_/g) == null ? false : true;
-
-																var mainName = this.name.replace('value_from_start_', '');
-																if (boolEnd) {
-																	mainName = this.name.replace('value_from_end_', '');
-																	$(this).closest('form').find('[name=value_from_end_' + mainName + ']').blur();
-																}
-
-																$(this).closest('form').find('[name=value_from_start_' + mainName + ']').val(picker.startDate.format(dateFormat));
-																$(this).closest('form').find('[name=value_from_end_' + mainName + ']').val(picker.endDate.format(dateFormat));
-
-																$(this).trigger('change').trigger('keyup');
-															})
-															.on('show.daterangepicker', function (ev, picker) {
-																var boolStart = this.name.match(/value_from_start_/g) == null ? false : true;
-																var boolEnd = this.name.match(/value_from_end_/g) == null ? false : true;
-																var mainName = this.name.replace('value_from_start_', '');
-																if (boolEnd) {
-																	mainName = this.name.replace('value_from_end_', '');
-																}
-
-																var startDate = $(this).closest('form').find('[name=value_from_start_' + mainName + ']').val();
-																var endDate = $(this).closest('form').find('[name=value_from_end_' + mainName + ']').val();
-
-																$('[name=daterangepicker_start]').val(startDate).trigger('change').trigger('keyup');
-																$('[name=daterangepicker_end]').val(endDate).trigger('change').trigger('keyup');
-
-																if (boolEnd) {
-																	$('[name=daterangepicker_end]').focus();
-																}
-															});
-													</script>
-
-													<div class="mb-3" id="ageofchild1" style="display: none;">
-														<label>Çocuğun yaşı:</label>
-														<select id="first_child_age" name="ageofchild1" aria-label="">
-															<option value="0">0</option>
-														</select>
-
-													</div>
-
-													<div class="mb-3" id="ageofchild2" style="display: none;">
-														<label>Çocuğun yaşı:</label>
-														<select id="second_child_age" name="ageofchild2" aria-label="">
-															<option value="0">0</option>
-														</select>
-
-													</div>
-
-													<div class="mb-3" id="ageofchild3" style="display: none;">
-														<label>Çocuğun yaşı:</label>
-														<select id="third_child_age" name="ageofchild3" aria-label="">
-															<option value="0">0</option>
-														</select>
-													</div>
-
-													<div class="mb-3" id="ageofchild4" style="display: none;">
-														<label>Çocuğun yaşı:</label>
-														<select id="fourth_child_age" name="ageofchild4" aria-label="">
-															<option value="0">0</option>
-														</select>
-
-													</div>
-
-													<div class="mb-3" id="ageofchild5" style="display: none;">
-														<label>Çocuğun yaşı:</label>
-														<select id="fifth_child_age" name="ageofchild5" aria-label="">
-															<option value="0">0</option>
-														</select>
-
-													</div>
-
-
-													<script type="text/javascript">
-														function changeadultNumber(action) {
-															var yetiskin_sayisi = parseInt(document.getElementById("otel_kisi_sayisi").value) + 1;
-
-															console.log("yetiskin");
-
-															if (action == "substraction") {
-																yetiskin_sayisi = yetiskin_sayisi - 2;
-
-																if (yetiskin_sayisi == 1 || yetiskin_sayisi < 1) {
-																	document.getElementById("ok_min_btn").style.display = "none";
-																} else if ((yetiskin_sayisi < 6) && (document.getElementById("ok_max_btn").style.display = "none")) {
-																	document.getElementById("ok_max_btn").style.display = null;
-																}
-
-															} else if (action == "add") {
-																if (yetiskin_sayisi >= 1) {
-																	document.getElementById("ok_min_btn").style.display = null;
-																}
-
-																if (yetiskin_sayisi == 6) {
-																	document.getElementById("ok_max_btn").style.display = "none";
-																}
-															}
-
-														}
-
-
-														function changechildNumber(action) {
-															var cocuk_sayisi = parseInt(document.getElementById("otel_cocuk_sayisi").value) + 1;
-
-															if (action == "substraction") {
-
-																cocuk_sayisi = cocuk_sayisi - 2;
-
-																if (cocuk_sayisi == 0 || cocuk_sayisi < 0) {
-																	document.getElementById("oc_min_btn").style.display = "none";
-																} else if (cocuk_sayisi > 0 || cocuk_sayisi < 5) {
-																	document.getElementById("oc_max_btn").style.display = null;
-																}
-																if (cocuk_sayisi == 0) {
-																	document.getElementById("ageofchild1").style.display = "none";
-																} else if (cocuk_sayisi == 1) {
-																	document.getElementById("ageofchild2").style.display = "none";
-																} else if (cocuk_sayisi == 2) {
-																	document.getElementById("ageofchild3").style.display = "none";
-																} else if (cocuk_sayisi == 3) {
-																	document.getElementById("ageofchild4").style.display = "none";
-																} else if (cocuk_sayisi == 4) {
-																	document.getElementById("ageofchild5").style.display = "none";
-																}
-
-															} else if (action = "add") {
-																if (cocuk_sayisi == 1) {
-																	document.getElementById("oc_min_btn").style.display = null;
-																	document.getElementById("ageofchild1").style.display = null;
-																} else if (cocuk_sayisi == 2) {
-																	document.getElementById("ageofchild1").style.display = null;
-																	document.getElementById("ageofchild2").style.display = null;
-																} else if (cocuk_sayisi == 3) {
-																	document.getElementById("ageofchild1").style.display = null;
-																	document.getElementById("ageofchild2").style.display = null;
-																	document.getElementById("ageofchild3").style.display = null;
-																} else if (cocuk_sayisi == 4) {
-																	document.getElementById("ageofchild1").style.display = null;
-																	document.getElementById("ageofchild2").style.display = null;
-																	document.getElementById("ageofchild3").style.display = null;
-																	document.getElementById("ageofchild4").style.display = null;
-																} else if (cocuk_sayisi == 5) {
-																	document.getElementById("ageofchild1").style.display = null;
-																	document.getElementById("ageofchild2").style.display = null;
-																	document.getElementById("ageofchild3").style.display = null;
-																	document.getElementById("ageofchild4").style.display = null;
-																	document.getElementById("ageofchild5").style.display = null;
-																	document.getElementById("oc_max_btn").style.display = "none";
-																}
-															}
-														}
-													</script>
-
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="inputButton">
-											<button type="button" id="search_otels_date_form_submit_button"> HEMEN ARA
-											</button>
-										</div>
-
-									</li>
-
-								</ul>
-							</form>
-						</div>
-
-					</div>
+			<div class="payment-progress">
+				<div class="step active">
+					<div class="count">1</div>
+					<div class="text">Konuk Bilgileri</div>
+				</div>
+				<div class="step">
+					<div class="count">2</div>
+					<div class="text">Ödeme Bilgileri</div>
+				</div>
+				<div class="step ">
+					<div class="count">3</div>
+					<div class="text">Rezervasyon Detayları</div>
 				</div>
 			</div>
-		</div>
-		</div>
-	</section>
-
-	<script type="text/javascript">
-		if (screen.width < 1023) {
-			document.getElementById("firstPart").style.display = "none";
-		} else {
-			if (document.getElementById("secondPart")) {
-				document.getElementById("secondPart").style.display = "none";
-
-			}
-		}
-
-		document.getElementById("location_2").style.setProperty("display", "none", "important");
-	</script>
-
-
-	<script>
-		function changeSBO() {
-
-			document.getElementById("location").style.setProperty("display", "block", "important");
-			document.getElementById("location_2").style.setProperty("display", "none", "important");
-			window.open('oteller', '_blank');
-		}
-
-		function changeSBV() {
-
-			document.getElementById("location").style.setProperty("display", "none", "important");
-			document.getElementById("location_2").style.setProperty("display", "block", "important");
-			window.open('villalar', '_blank');
-		}
-	</script>
-
-	<div class="container">
-		<div class="owl-carousel owl-theme mt-4 mb-4">
-			<div> <a href="/oteller"><img src="assets/images/erken-rezervation-slider.jpeg" /></a> </div>
-			<div> <a href="/villalar"> <img src="assets/images/banner-villa-hire.jpeg" /></a> </div>
-			<div> <a href="/tekneler"><img src="assets/images/slider-tekneBanner.jpeg" /> </a></div>
-			<div> <a href="/alacati-arac-kiralama"><img src="assets/images/banner-car-hire.jpeg" /></a> </div>
-			<div> <a href="/mice"><img src="assets/images/mice-slider-banner.jpeg" /></a> </div>
-		</div>
-
-	</div>
-	<div class="container d-none" id="firstPart">
-		<div id="homeSlider" class="carousel slide" data-ride="carousel">
-
-			<div class="carousel-inner">
-
-				<div class="carousel-item active">
-					<a href="" target="_blank"><img class="d-block w-100" src="assets/images/slider/70906099.jpg"
-							alt="Alaçatı Anasayfa Slider" /> </a>
-
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#homeSlider" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#homeSlider" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-
-	<div class="container d-none" id="secondPart">
-		<div id="homeSliderr" class="carousel slide mt-3" data-ride="carousel">
-			<ol class="carousel-indicators">
-			</ol>
-			<div class="carousel-inner">
-
-				<div class="carousel-item active">
-					<a href="" target="_blank"><img class="d-block w-100" src="assets/images/slider/45425974.jpg"
-							alt="Alaçatı Anasayfa Slider" /> </a>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#homeSliderr" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#homeSliderr" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-
-
-	<script type="text/javascript">
-		if (screen.width < 1023) {
-			document.getElementById("firstPart").style.display = "none";
-		} else {
-			document.getElementById("secondPart").style.display = "none";
-		}
-
-		document.getElementById("location_2").style.setProperty("display", "none", "important");
-	</script>
-
-
-	<script>
-		function changeSBO() {
-
-			document.getElementById("location").style.setProperty("display", "block", "important");
-			document.getElementById("location_2").style.setProperty("display", "none", "important");
-			window.open('oteller', '_blank');
-		}
-
-		function changeSBV() {
-
-			document.getElementById("location").style.setProperty("display", "none", "important");
-			document.getElementById("location_2").style.setProperty("display", "block", "important");
-			window.open('villalar', '_blank');
-		}
-	</script>
-
-	<script>
-		$(document).ready(function () {
-			$('.owl-carousel').owlCarousel({
-				loop: true,
-				margin: 10,
-				autoplay: true,
-				responsiveClass: true,
-				responsive: {
-					0: {
-						items: 1,
-						nav: true
-					},
-					600: {
-						items: 1,
-						nav: true
-					},
-					1000: {
-						items: 1,
-						nav: true,
-						loop: true
-					}
-				}
-			})
-		});
-	</script>
-
-	<!-- Content Begin -->
-	<section id="en-iyi-oteller">
-		<div class="container">
-			<div class="row site-title">
-				<div class="col-12">
-					<p>Çeşme Otelleri</p>
-					<h1>En İyi Oteller</h1>
-				</div>
-			</div>
-			<div class="card-deck">
-				<div class="card mt-3 p-3" style="border-radius: 16px !important;">
-
-					<div class="sale-tag-icon">
-						<button class="sale-ticket-btn">
-							<!-- <img class="sale-ticket-img" src="assets/images/sale-ticket-icon.svg" alt=""> -->
-							<i class="fa-solid fa-tags"></i>
-							<span>%10 İndirim</span>
-						</button>
-					</div>
-
-					<img class="card-img-top" src="assets/images/hotel/aden-butik-otel-5260347-.webp"
-						alt="Alaçatı Tatil Oteller" height="210" loading="lazy" style="border-radius: 10px 10px 0 0" />
-					<span class="span-right">
-						<p style="color:#2196f3;">
-							<i class="fas fa-map-pin"></i>
-							Alaçatı / Çeşme / İzmir
-						</p>
-					</span>
-
-					<div class="card-body">
-
-						<div class="otel-content mb-2">
-
-							<h6>
-								Kybele Suites Alaçatı
-							</h6>
-
-							<div class="row">
-								Oda Kahvaltı
+			<div class="row">
+				<div class="col-md-8">
+					<div class="card content-bordered-blue">
+						<div class="card-body fast-pay mb-0">
+							<i class="fa fa-user-check"></i>
+							<div class="fast-pay-body">
+								<h5 class="mt-0">Daha Hızlı İlerlemek İçin Oturum Açın!</h5>
+								Üyeliğiniz varsa hızlı bir şekilde <a href="#">giriş yap</a>arak devam edebilirsiniz.
+								Hemen
+								<a href="">üye ol</a>mak için tıklayın.
 							</div>
-
 						</div>
-						<div class="d-flex otel-content-footer" style="min-height: 60px;">
-
-							<div class="otel-content-icon">
-								<ul class="d-flex justify-content-between">
-									<li>
-										<img src="http://alacati.test/assets/images/iconset/IC38483381.jpg" width="15"
-											height="15"> <span>Havuz</span>
-									</li>
-									<li>
-										<img src="http://alacati.test/assets/images/iconset/IC13224328.jpg" width="15"
-											height="15"> <span>Split Klima</span>
-									</li>
-									<li>
-										<img src="http://alacati.test/assets/images/iconset/IC75765684.jpg" width="15"
-											height="15"> <span>WiFi</span>
-									</li>
-									<li>
-										<img src="http://alacati.test/assets/images/iconset/IC43109194.jpg" width="15"
-											height="15"> <span>Emanet Kasa</span>
-									</li>
-									<li>
-										<img src="http://alacati.test/assets/images/iconset/IC93024382.jpg" width="15"
-											height="15"> <span>Şezlong</span>
-									</li>
-								</ul>
+					</div>
+					<div class="card content-bordered-blue ">
+						<div class="card-body text-center">
+							<h3>TATİLİNE EK HİZMETLER EKLEYEREK KEYFİNİ ÇIKAR</h3>
+							<p class="mb-3">Rezervasyonunuza ARAÇ KİRALAMA, TEKNE KİRALAMA, BEACH GİRİŞ ekleyin</p>
+							<div class="d-flex justify-content-around extra-service">
+								<button class="btn btn-incele" type="button">
+									<i class="fa-solid fa-car"></i>
+									ARAÇ KİRALAMA
+								</button>
+								<button class="btn btn-incele" type="button">
+									<i class="fa-solid fa-ship"></i>
+									TEKNE KİRALAMA
+								</button>
+								<button class="btn btn-incele" type="button">
+									<i class="fa-solid fa-umbrella-beach"></i>
+									BEACH GİRİŞ
+								</button>
 							</div>
-
 						</div>
-
 					</div>
 
-					<div class="card-footer bg-white" style="border: none;">
-						<div class="otel-content" style="border: none !important;">
-							<div class="comment-box">
-								<div class="row">
-									<div class="col-lg-4 col-sm-12">
-										<div class="">
-											<img src="http://alacati.test/assets/images/bank_logo/84108321.jpg" alt="">
-											<img src="http://alacati.test/assets/images/bank_logo/96091614.jpg" alt="">
+
+					<form action="" method="POST">
+						<h5>Misafir Bilgileri</h5>
+						<div id="first-customer" class="payment-accordion">
+							<div class=" card">
+								<div class="card-header" id="first-customer-heading" data-toggle="collapse"
+									data-target="#first-customer-collapse" aria-expanded="true"
+									aria-controls="first-customer-collapse">
+									1. Yetişkin Bilgileri (Zorunlu)
+									<i class="fa fa-chevron-up"></i>
+								</div>
+
+								<div id="first-customer-collapse" class="collapse show"
+									aria-labelledby="first-customer-heading" data-parent="#first-customer">
+									<div class="card-body">
+										<div class="form-group row">
+											<div class="col">
+												<input type="text" class="form-control form-control-sm"
+													name="adult-name-1" id="adult-name-1" placeholder="Ad" required="">
+											</div>
+											<div class="col">
+												<input type="text" class="form-control form-control-sm"
+													name="adult-lastname-1" id="adult-lastname-1" placeholder="Soyad" required="">
+											</div>
 										</div>
-									</div>
-									<div class="col-lg-8 col-sm-12">
-										<div class="d-flex justify-content-end flex-column">
-											<span class="hotel-daily-total">1 Gece Toplam Fiyat</span>
-											<span class="hotel-new-price">9.696,64 TL</span>
-											<a href="http://alacati.test/otel/the-abc-hotel" target="_blank"><button
-													class="btn btn-incele hotel-link-info">Oteli İncele </button></a>
+										<div class="form-group row">
+											<div class="col">
+												<input type="email" class="form-control" name="adult-email-1" id="adult-email-1"
+													placeholder="Eposta Adresi" required="">
+											</div>
+											<div class="col">
+												<input type="text" class="form-control" name="adult-phone-1" id="adult-phone-1"
+													placeholder="Telefon Numarası" required="">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col id-container">
+												<input type="text" class="form-control" name="adult-tckn-1" id="adult-tckn-1"
+													placeholder="T.C. Kimlik Numarası" required="">
+											</div>
+											<div class="col pass-no-container d-none">
+												<input type="text" class="form-control" name="adult-pasaport-1" id="adult-pasaport-1"
+													placeholder="Pasaport Numarası" required="">
+											</div>
+											<div class="col">
+												<div class="form-check">
+													<input class="form-check-input not-from-turkey-checkbox"
+														type="checkbox" value="not-from-turkey-first-customer" id="not-from-turkey-first-customer">
+													<label class="form-check-label"
+														for="not-from-turkey-first-customer">
+														T.C. Vatandaşı Değilim
+													</label>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						<div id="second-customer" class="payment-accordion">
+							<div class=" card">
+								<div class="card-header collapsed" id="second-customer-heading" data-toggle="collapse"
+									data-target="#second-customer-collapse" aria-expanded="false"
+									aria-controls="second-customer-collapse">
+									2. Yetişkin Bilgileri (İsteğe Bağlı)
+									<i class="fa fa-chevron-up"></i>
+								</div>
+								<div id="second-customer-collapse" class="collapse"
+									aria-labelledby="second-customer-heading" data-parent="#second-customer">
+									<div class="card-body">
+										<div class="form-group row">
+											<div class="col">
+												<input type="text" class="form-control form-control-sm"
+													name="adult-name-2" id="adult-name-2" placeholder="Ad" required="">
+											</div>
+											<div class="col">
+												<input type="text" class="form-control form-control-sm"
+													name="adult-lastname-2" id="adult-lastname-2" placeholder="Soyad" required="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col">
+												<input type="email" class="form-control" name="adult-email-2" id="adult-email-2"
+													placeholder="Eposta Adresi" required="">
+											</div>
+											<div class="col">
+												<input type="text" class="form-control" name="adult-phone-2" id="adult-phone-2"
+													placeholder="Telefon Numarası" required="">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col id-container">
+												<input type="text" class="form-control" name="adult-tckn-2" id="adult-tckn-2"
+													placeholder="T.C. Kimlik Numarası" required="">
+											</div>
+											<div class="col pass-no-container d-none">
+												<input type="text" class="form-control" name="adult-email-2" id="adult-email-2"
+													placeholder="Pasaport Numarası" required="">
+											</div>
+											<div class="col">
+												<div class="form-check">
+													<input class="form-check-input not-from-turkey-checkbox"
+														type="checkbox" value="not-from-turkey-second-customer" id="not-from-turkey-second-customer">
+													<label class="form-check-label"
+														for="not-from-turkey-second-customer">
+														T.C. Vatandaşı Değilim
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="special-requests" class="payment-accordion">
+							<div class=" card">
+								<div class="card-header collapsed" id="special-requests-heading" data-toggle="collapse"
+									data-target="#special-requests-collapse" aria-expanded="false"
+									aria-controls="special-requests-collapse">
+									Özel İstekler ve/veya Notlar (İsteğe Bağlı)
+									<i class="fa fa-chevron-up"></i>
+								</div>
+								<div id="special-requests-collapse" class="collapse"
+									aria-labelledby="special-requests-heading" data-parent="#special-requests">
+									<div class="card-body">
+										<p class="mb-2">Özel talepleriniz garanti edilemez ancak tesis, ihtiyaçlarınızı
+											karşılamak için yardımcı olacaktır.</p>
+										<div class="form-group">
+											<textarea name="" id="" cols="30" rows="10"
+												class="form-control form-control-sm"
+												placeholder="İstekler ve/veya Notlar"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="arrive-time" class="payment-accordion">
+							<div class=" card">
+								<div class="card-header collapsed" id="arrive-time-heading" data-toggle="collapse"
+									data-target="#arrive-time-collapse" aria-expanded="false"
+									aria-controls="arrive-time-collapse">
+									Varış Zamanı (İsteğe Bağlı)
+									<i class="fa fa-chevron-up"></i>
+								</div>
+								<div id="arrive-time-collapse" class="collapse" aria-labelledby="arrive-time-heading"
+									data-parent="#arrive-time">
+									<div class="card-body">
+										<p class="mb-2">Odalarınız 14:00 ile 00:00 arasında check-in için hazır
+											olacaktır.</p>
+										<p>Tahmini varış saatiniz</p>
+										<div class="form-group">
+											<select id="" name="" class="form-control">
+												<option value="10:00">10:00 ile 11:00 arası</option>
+												<option value="11:00">11:00 ile 12:00 arası</option>
+												<option value="12:00">12:00 ile 13:00 arası</option>
+												<option value="13:00">13:00 ile 14:00 arası</option>
+												<option value="14:00">14:00 ile 15:00 arası</option>
+												<option value="15:00">15:00 ile 16:00 arası</option>
+												<option value="16:00">16:00 ile 17:00 arası</option>
+												<option value="17:00">17:00 ile 18:00 arası</option>
+												<option value="18:00">18:00 ile 19:00 arası</option>
+												<option value="19:00">19:00 ile 20:00 arası</option>
+												<option value="20:00">20:00 ile 21:00 arası</option>
+												<option value="21:00">21:00 ile 22:00 arası</option>
+												<option value="22:00">22:00 ile 23:00 arası</option>
+												<option value="23:00">23:00 sonrası</option>
+											</select>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="aydinlatma-metni-checkbox">
+							<label class="form-check-label" for="aydinlatma-metni-checkbox">
+								<span class="modal-link" data-toggle="modal" data-target="#aydinlatma-metni">Aydınlatma
+									ve Rıza
+									Metnini</span> okudum, anladım ve onaylıyorum.
+							</label>
+						</div>
+						<button type="submit" name="" class="btn login-btn btn-block">Kaydet ve Devam Et</button>
+					</form>
+
+					<div class="card content-bordered-blue payment-card">
+						<div class="card-header text-center">
+							Ödeme
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-3">
+									<div class="nav flex-column" role="tablist" aria-orientation="vertical">
+										<button class="btn btn-incele mb-3" type="button" id="pay-card-tab"
+											data-toggle="pill" href="#pay-card" role="tab" aria-controls="pay-card"
+											aria-selected="true">
+											<i class="fa-solid fa-credit-card"></i>
+											KART İLE ÖDE
+										</button>
+										<button class="btn btn-incele mb-3" type="button" id="eft-tab"
+											data-toggle="pill" href="#eft" role="tab" aria-controls="eft"
+											aria-selected="false">
+											<i class="fa-solid fa-money-bill-1-wave"></i>
+											HAVALE EFT
+										</button>
+										<button class="btn btn-incele mb-3" type="button" id="bitcoin-tab"
+											data-toggle="pill" href="#bitcoin" role="tab" aria-controls="bitcoin"
+											aria-selected="false">
+											<i class="fa-solid fa-bitcoin-sign"></i>
+											BITCOIN İLE ÖDE
+										</button>
+									</div>
+								</div>
+								<div class="col-md-9">
+									<div class="tab-content">
+										<div class="tab-pane fade show active" id="pay-card" role="tabpanel"
+											aria-labelledby="pay-card-tab">
+											<form action="" method="POST">
+												<span class="badge badge-success p-2 mb-3 d-flex align-items-center">
+													<i class="fa fa-check-circle mr-2"></i>
+													İşleminiz 3dsecure ile tamamlanacaktır.
+												</span>
+												<span class="badge badge-success p-2 mb-3 d-flex align-items-center">
+													<i class="fa fa-exclamation-triangle mr-2"></i>
+													Rezervasyon tutarının tamamı tahsil edilecektir.
+												</span>
+												<div class="form-group row">
+													<div class="col">
+														<input type="text" class="form-control form-control-sm"
+															name="card-holder-name" id="card-holder-name"
+															placeholder="Kart Üzerindeki Ad Soyad" required="">
+													</div>
+													<div class="col">
+														<input type="text" class="form-control form-control-sm"
+															name="card-number" id="card-number" placeholder="Kart Numarası" required="">
+													</div>
+												</div>
+												<div class="form-group row">
+													<div class="col">
+														<select name="card-month" id="card-month" class="form-control">
+															<option disabled selected>AY</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+														</select>
+													</div>
+													<div class="col">
+														<select name="card-year" id="card-year" class="form-control">
+															<option disabled selected>YIL</option>
+															<option value="2023">2023</option>
+															<option value="2024">2024</option>
+															<option value="2025">2025</option>
+															<option value="2026">2026</option>
+															<option value="2027">2027</option>
+															<option value="2028">2028</option>
+															<option value="2029">2029</option>
+															<option value="2030">2030</option>
+															<option value="2031">2031</option>
+															<option value="2032">2032</option>
+															<option value="2033">2033</option>
+															<option value="2034">2034</option>
+														</select>
+													</div>
+													<div class="col">
+														<input type="email" class="form-control" name="card-cvc"
+															id="card-cvc" placeholder="CVC" required="">
+														<div class="invalid-feedback">
+															Lütfen eposta adresi giriniz.
+														</div>
+													</div>
+												</div>
+												<ul class="installment-list"></ul>
+												<div class="payment-types">
+													<img src="assets/payment-types/3dsecure.svg">
+													<img src="assets/payment-types/troycard.svg">
+													<img src="assets/payment-types/amex.svg">
+													<img src="assets/payment-types/mastercard.svg">
+													<img src="assets/payment-types/visa2.svg">
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="online-satis-checkbox">
+													<label class="form-check-label" for="online-satis-checkbox">
+														<span class="modal-link" data-toggle="modal"
+															data-target="#online-satis">Online Satış Sözleşmesi</span>ni
+														okudum, anladım ve onaylıyorum.
+													</label>
+												</div>
+												<button type="submit" name="" class="btn login-btn btn-block">
+													8 Gece, 1 Oda, ₺ 15.000,00
+													<br>
+													Rezervasyonu Tamamla
+												</button>
+											</form>
+										</div>
+										<div class="tab-pane fade" id="eft" role="tabpanel" aria-labelledby="eft-tab">
+											<table class="table table-bordered table-hover">
+												<thead>
+													<tr>
+														<th scope="col">Banka</th>
+														<th scope="col">Türü</th>
+														<th scope="col">Hesap No</th>
+														<th scope="col">Şube</th>
+														<th scope="col">SWIFT KODU (BIC)</th>
+														<th scope="col">IBAN</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/ziraat-bankasi.svg">
+														</th>
+														<td>TL</td>
+														<td>97573390</td>
+														<td>590</td>
+														<td>TCZBTR2A</td>
+														<td>TR7000 0100 0590 9757 3390 5001</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/ziraat-bankasi.svg">
+														</th>
+														<td>Dolar</td>
+														<td>97573390</td>
+														<td>590</td>
+														<td>TCZBTR2A</td>
+														<td>TR 1600 0100 0590 9757 3390 5003</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/ziraat-bankasi.svg">
+														</th>
+														<td>Euro</td>
+														<td>97573390</td>
+														<td>590</td>
+														<td>TCZBTR2A</td>
+														<td>TR 4300 0100 0590 9757 3390 5002</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/is-bankasi.svg">
+														</th>
+														<td>TL</td>
+														<td></td>
+														<td>3382</td>
+														<td></td>
+														<td>TR98 0006 4000 0013 3820 1799 23</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/is-bankasi.svg">
+														</th>
+														<td>Dolar</td>
+														<td></td>
+														<td>3382</td>
+														<td></td>
+														<td>TR19 0006 4000 0023 3820 0776 20</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/is-bankasi.svg">
+														</th>
+														<td>Euro</td>
+														<td></td>
+														<td>3382</td>
+														<td></td>
+														<td>TR02 0006 4000 0023 3820 0776 35</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/akbank.png">
+														</th>
+														<td>TL</td>
+														<td>0157180</td>
+														<td>0654</td>
+														<td></td>
+														<td>TR75 0004 6006 5488 8000 1571 80</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/akbank.png">
+														</th>
+														<td>Dolar</td>
+														<td>0157200</td>
+														<td>0654</td>
+														<td></td>
+														<td>TR68 0004 6006 5400 1000 1572 00</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/akbank.png">
+														</th>
+														<td>Euro</td>
+														<td>0157201</td>
+														<td>0654</td>
+														<td></td>
+														<td>TR18 0004 6006 5403 6000 1572 01</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/garanti-bankasi.svg">
+														</th>
+														<td>TL</td>
+														<td>6299690</td>
+														<td>1316</td>
+														<td></td>
+														<td>TR18 0006 2001 3160 0006 2996 90</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/garanti-bankasi.svg">
+														</th>
+														<td>Dolar</td>
+														<td>9096536</td>
+														<td>1316</td>
+														<td></td>
+														<td>TR64 0006 2001 3160 0009 0965 36</td>
+													</tr>
+													<tr>
+														<th scope="row">
+															<img src="assets/images/banka-logolari/garanti-bankasi.svg">
+														</th>
+														<td>Euro</td>
+														<td>9096535</td>
+														<td>1316</td>
+														<td></td>
+														<td>TR91 0006 2001 3160 0009 0965 35</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="tab-pane fade" id="bitcoin" role="tabpanel"
+											aria-labelledby="bitcoin-tab">3</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-3">
+					<div class="rezervation-information">
+						<div class="otel-information">
+							<img src="assets/images/alacatihotel-room.jpg" alt="">
+							<div class="name-adress">
+								<span class="hotel-name">Kupina Otel Alaçatı</span>
+								<span class="room-name">Kupina Otel Alaçatı</span>
+								<span class="address">
+									<i class="fa fa-map-marker-alt"></i>
+									KUPiNA OTEL Alaçatı
+								</span>
+							</div>
+						</div>
+						<div class="dates">
+							<div class="start-date">
+								Giriş tarihi
+								<span class="date">
+									01.09.2023 12:00
+									<br>
+									sonrası
+								</span>
+							</div>
+							<div class="end-date">
+								Çıkış tarihi
+								<span class="date">
+									09.09.2023 14:00
+									<br>
+									öncesi
+								</span>
+							</div>
+						</div>
+						<p class="d-flex align-items-center">
+							<i class="fa fa-users mr-2"></i>
+							2 Yetişkin, 8 Gece, 1 Oda
+						</p>
+						<p class="d-flex align-items-center">
+							<i class="fa fa-bed mr-2"></i>
+							1. Oda Standart Oda Ultra Her Şey Dahil
+						</p>
+
+					</div>
+					<div class="amount-summary mb-3">
+						Toplam Tutar
+						<span class="amount">₺ 15.000,00</span>
 					</div>
 
+					<div class="card content-bordered-red">
+						<div class="card-body">
+							<h6>İptal Edilemez</h6>
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut exercitationem mollitia
+								odit ab dolorum ducimus laborum et natus placeat laboriosam reiciendis possimus fugiat
+								maxime similique nostrum, doloremque quidem! Quos, minus.
+							</p>
+						</div>
+					</div>
+
+					<div class="card content-bordered-blue">
+						<div class="card-body">
+							<h6>İptal Edilebilir</h6>
+							<p>
+								Belirtilen tarihlerden sonra rezervasyonu değiştirdiğinizde veya tamamen iptal
+								ettiğinizde
+								ödemeniz gereken iptal cezaları belirtilmiştir. Oda bazlı iptallerde cezalar oda bazlı
+								hesaplanır.
+							</p>
+						</div>
+					</div>
+
+					<div class="card content-bordered-blue">
+						<div class="card-body">
+							<a href="https://www.alacatitatil.com/alacati-arac-kiralama">
+								<img class="d-block w-100" src="assets/images/banner/87704354.jpg" alt="All Sliders">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-8">
+					<div class="payment-succes-card card content-bordered-blue">
+						<div class="card-body">
+							<h4>Ödeme Başarılı</h4>
+							<i class="fa fa-check"></i>
+							<p>Ödemeniz başarılı bir şekilde gerçekleşmitir.</p>
+							<p>Rezervasyon Kodunuz: TR312AL</p>
+							<div class="d-flex align-items-center justify-content-center">
+								<p class="mr-2">İletişim</p>
+								<a href="tel:+902327120398" class="mr-2">
+									0232 712 03 98
+								</a>
+								<a href="tel:+905314554084" class="ml-2">0531 455 40 84</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<hr>
+			</div>
+
+			<div class="rezervation-summary mb-3">
+				<div class="header">
+					<div class="logo">
+						<img src="assets/images/alacati-logo-blue.svg" alt="Alaçatı Tatil Logo" width="100">
+					</div>
+					<div class="title">
+						<i class="fa fa-check"></i>
+						Rezervasyonunuz Tamamlandı
+					</div>
+				</div>
+				<div class="rezervation-date">
+					<span class="title">Rezervasyon Oluşturma Tarihi</span>
+					<div class="date">
+						<span class="day">02</span>
+						<span class="month">09</span>
+						<span class="year">2023</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="name-adress mb-3">
+							<span class="hotel-name">Kupina Otel Alaçatı</span>
+							<span class="address">
+								<i class="fa fa-map-marker-alt"></i>
+								KUPiNA OTEL Alaçatı
+							</span>
+						</div>
+						<div class="content-bordered-blue mb-3 ">
+							<img src="assets/images/alacatihotel-room.jpg" alt="">
+						</div>
+
+						<span class="d-block mb-3">
+							1. Oda Standart Oda Ultra Her Şey Dahil
+						</span>
+						<div class="content-bordered-blue mb-3">
+							<img src="assets/images/alacatihotel-room.jpg" alt="">
+						</div>
+					</div>
+					<div class="col-md-8">
+						<h6><b>1.YETİŞKİN BİLGİLERİ</b></h6>
+						<div class="content-bordered-blue mb-3 text-center">
+							<div class="d-flex justify-content-between mb-2">
+								<div class="w-100">
+									<b class="d-block">
+										AD SOYAD
+									</b>
+									Osman Karaman
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										TCKN / PASAPORT NO
+									</b>
+									24424452984
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										TELEFON NO
+									</b>
+									0555 555 55 55
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										E-MAIL
+									</b>
+									osman@gmail.com
+								</div>
+							</div>
+						</div>
+						<h6><b>2.YETİŞKİN BİLGİLERİ</b></h6>
+						<div class="content-bordered-blue mb-3 text-center">
+							<div class="d-flex justify-content-between mb-2">
+								<div class="w-100">
+									<b class="d-block">
+										AD SOYAD
+									</b>
+									Osman Karaman
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										TCKN / PASAPORT NO
+									</b>
+									24424452984
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										TELEFON NO
+									</b>
+									0555 555 55 55
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										E-MAIL
+									</b>
+									osman@gmail.com
+								</div>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<h6><b>1.ÇOCUK BİLGİLERİ</b></h6>
+								<div class="content-bordered-blue text-center">
+									<div class="d-flex justify-content-between mb-2">
+										<div class="w-100">
+											<b class="d-block">
+												AD SOYAD
+											</b>
+											Osman Karaman
+										</div>
+										<div class="w-100">
+											<b class="d-block">
+												Yaş
+											</b>
+											4
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h6><b>2.ÇOCUK BİLGİLERİ</b></h6>
+								<div class="content-bordered-blue text-center">
+									<div class="d-flex justify-content-between mb-2">
+										<div class="w-100">
+											<b class="d-block">
+												AD SOYAD
+											</b>
+											Osman Karaman
+										</div>
+										<div class="w-100">
+											<b class="d-block">
+												Yaş
+											</b>
+											6
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="content-bordered-blue mb-3 text-center">
+							<div class="d-flex justify-content-between mb-2">
+								<div class="w-100">
+									<b class="d-block">
+										OTELE VARIŞ SAATİ
+									</b>
+									11:00
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										OTELE GİRİŞ TARİHİ
+									</b>
+									02.09.2023 14:00
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										OTELDEN ÇIKIŞ TARİHİ
+									</b>
+									10.09.2023 12:00
+								</div>
+								<div class="w-100">
+									<b class="d-block">
+										TOPLAM ÖDENEN TUTAR
+									</b>
+									₺ 15.000,00
+								</div>
+							</div>
+						</div>
+						<h6><b>ÖZEL NOT</b></h6>
+						<div class="content-bordered-blue mb-3">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, nulla commodi
+							reprehenderit sed optio nam impedit numquam obcaecati aperiam aut ea asperiores id
+							sint, eius tempora sunt voluptatum, harum a.
+						</div>
+					</div>
+				</div>
+				<div class="summary-footer content-bordered-blue mb-3">
+					<div class="d-flex align-items-center justify-content-center">
+						<a href="tel:+902327120398" class="mr-2">
+							0232 712 03 98
+						</a>
+						-
+						<a href="tel:+902327120398" class="ml-2 mr-2">
+							0232 712 03 98
+						</a>
+						-
+						<a href="tel:+905314554084" class="ml-2">0531 455 40 84</a>
+					</div>
+					<div class="d-flex align-items-center justify-content-center">
+						<a href="mailto:info@alacatitatil.com" class="mr-2">
+							info@alacatitatil.com
+						</a>
+						-
+						<a href="www.alacatitatil.com" class="ml-2">www.alacatitatil.com</a>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-center">
+						16 Eylül mah, 3025 Sk, No :42/a Çeşme İZMİR
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- Content End -->
+	</div>
+
+
+
+	<!-- Aydınlatma Metni Modal -->
+	<div class="modal fade" id="aydinlatma-metni" tabindex="-1" role="dialog" aria-labelledby="aydinlatma-metnilLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="aydinlatma-metniLabel">Aydınlatma ve Rıza metni</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea soluta pariatur laudantium rem dolorum
+					nemo, natus necessitatibus illum ipsum accusantium aperiam saepe ipsa eum nostrum delectus amet
+					doloremque alias. Voluptate?
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Online Satış Sözleşmesi Modal -->
+	<div class="modal fade" id="online-satis" tabindex="-1" role="dialog" aria-labelledby="online-satisLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="online-satisLabel">Online Satış Sözleşmesi</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea soluta pariatur laudantium rem dolorum
+					nemo, natus necessitatibus illum ipsum accusantium aperiam saepe ipsa eum nostrum delectus amet
+					doloremque alias. Voluptate?
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		let notFromTurkeyCheckboxes = document.querySelectorAll(".not-from-turkey-checkbox");
+
+		notFromTurkeyCheckboxes.forEach((checkbox) => {
+			checkbox.addEventListener("change", (event) => {
+				const idContainer = event.target.closest(".form-group").querySelector(".id-container");
+				const passNoContainer = event.target.closest(".form-group").querySelector(".pass-no-container");
+
+				if (event.target.checked) {
+					idContainer.classList.add("d-none");
+					passNoContainer.classList.remove("d-none");
+				}
+				else {
+					idContainer.classList.remove("d-none");
+					passNoContainer.classList.add("d-none");
+				}
+			})
+		});
+
+		const installmenListArray = [
+			{
+				id: 1,
+				bankName: "Ziraat Bankası",
+				installment: 3,
+			},
+			{
+				id: 2,
+				bankName: "Ziraat Bankası",
+				installment: 6,
+			},
+			{
+				id: 3,
+				bankName: "Ziraat Bankası",
+				installment: 9,
+			}
+		];
+
+		function pushInstallment(array) {
+			let installmentHTML = ''
+			installmentHTML = `
+				<li><h6>Taksit Listesi</h6></li>
+			`
+			array.forEach(item => {
+				installmentHTML += `
+					<li>
+						<div class="form-check">
+							<input type="radio" class="form-check-input" name="installment" id="installment-${item.id}" value="${item.bankName} ${item.installment} taksit">
+							<label class="form-check-label" for="installment-${item.id}">${item.bankName} ${item.installment} taksit</label>
+						</div>
+					</li>
+				`
+			});
+			return installmentHTML;
+		}
+
+		const installmentsContainer = document.querySelector(".installment-list")
+		const cardNumber = document.querySelector("#card-number")
+		cardNumber.addEventListener("input", () => {
+			cardNumber.value.length >= 16
+				? installmentsContainer.innerHTML = pushInstallment(installmenListArray)
+				: installmentsContainer.innerHTML = ""
+		})
+
+	</script>
+
+	<style>
+		.payment-form {
+			margin: 30px 0;
+		}
+
+		.payment-form .payment-progress {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			margin-bottom: 30px;
+		}
+
+		.payment-form .payment-progress .step {
+			text-align: center;
+			width: 100%;
+			position: relative;
+		}
+
+		.payment-form .payment-progress .step::before,
+		.payment-form .payment-progress .step::after {
+			width: 50%;
+			height: 5px;
+			content: "";
+			background-color: #eee;
+			display: block;
+			position: absolute;
+			top: 13px;
+			z-index: -1;
+		}
+
+		.payment-form .payment-progress .step::before {
+			left: 0;
+		}
+
+		.payment-form .payment-progress .step::after {
+			right: 0;
+		}
+
+		.payment-form .payment-progress .step.active::before,
+		.payment-form .payment-progress .step.active.done::after {
+			background-color: #039be0;
+		}
+
+
+		.payment-form .payment-progress .step .count {
+			width: 30px;
+			height: 30px;
+			margin: auto;
+			border: 3px solid #eee;
+			border-radius: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #fff;
+		}
+
+		.payment-form .payment-progress .step.active .count {
+			border-color: #039be0;
+		}
+
+		.payment-form .payment-types {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+		}
+
+		.payment-form .payment-types img {
+			margin-right: 10px;
+			display: block;
+			max-width: 50px;
+		}
+
+		.payment-form .rezervation-information {
+			padding: 10px;
+			border: 1px solid #039be0;
+			border-radius: 0.25rem;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+
+		.payment-form .otel-information {
+			display: flex;
+			align-items: flex-start;
+		}
+
+		.payment-form .otel-information img {
+			width: 100%;
+			max-width: 150px;
+			border-radius: 0.25rem;
+			margin-right: 10px;
+		}
+
+		.name-adress {
+			display: flex;
+			flex-direction: column;
+			font-size: 0.8rem;
+		}
+
+		.name-adress .hotel-name {
+			font-weight: 600;
+			font-size: 1.2rem;
+		}
+
+		.name-adress .room-name {
+			font-weight: 400;
+			font-size: 1rem;
+		}
+
+		.dates {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size: 0.8rem;
+		}
+
+		.dates .date {
+			display: block;
+			font-weight: 500;
+			font-size: 1rem;
+			margin-top: 10px;
+			line-height: 1rem;
+
+		}
+
+		.amount-summary {
+			background: #039be0;
+			color: #fff;
+			padding: 10px;
+			border-radius: 0.25rem;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.amount-summary .amount {
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+
+		.modal-header {
+			background: #039be0;
+			color: #fff;
+		}
+
+		.modal-content {
+			border: none;
+			overflow: hidden;
+		}
+
+		.modal-header .close {
+			color: #fff;
+		}
+
+		.modal-link {
+			color: #039be0;
+		}
+
+		.fast-pay {
+			position: relative;
+			margin-bottom: 20px;
+			display: flex;
+			align-items: center;
+		}
+
+		.fast-pay i {
+			font-size: 2.5rem;
+			margin-right: 10px;
+		}
+
+		.fast-pay .fast-pay-body {
+			font-size: 0.8rem;
+			line-height: 1rem;
+		}
+
+		.fast-pay .fast-pay-body h5 {
+			font-size: 1rem;
+		}
+
+		.payment-accordion .card {
+			border: 1px solid #039be0;
+		}
+
+		.payment-accordion .card .card-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid #039be0;
+		}
+
+		.payment-accordion .card .card-header i {
+			transition: transform 0.5s;
+		}
+
+		.payment-accordion .card .card-header.collapsed i {
+			transform: rotate(180deg);
+		}
+
+		#eft table {
+			font-size: 0.8rem;
+		}
+
+		#eft table thead tr th {
+			text-wrap: nowrap;
+		}
+
+		#eft table img {
+			max-width: 70px;
+		}
+
+		.rezervation-summary img {
+			width: 100%;
+			border-radius: 0.25rem;
+		}
+
+		.rezervation-summary .logo img {
+			max-width: 150px;
+		}
+
+		.rezervation-summary .header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.rezervation-summary .header .title {
+			font-size: 2rem;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.rezervation-summary .header .title i {
+			padding: 10px;
+			border-radius: 100%;
+			border: 5px solid #039be0;
+			color: #039be0;
+		}
+
+		.rezervation-summary .rezervation-date {
+			text-align: right;
+		}
+
+		.rezervation-summary .rezervation-date .title {
+			display: block;
+			font-size: 1.2rem;
+		}
+
+		.rezervation-summary .rezervation-date .date {
+			border: 1px solid #039be0;
+			max-width: fit-content;
+			margin-left: auto;
+			font-size: 1.2rem;
+		}
+
+		.rezervation-summary .rezervation-date .date span {
+			margin: 5px;
+			padding-right: 10px;
+			position: relative;
+		}
+
+		.rezervation-summary .rezervation-date .date span::after {
+			position: absolute;
+			right: -5px;
+			top: 0;
+			height: 100%;
+			width: 1px;
+			background: #039be0;
+			transform: skew(-45deg);
+			content: "";
+		}
+
+		.rezervation-summary .rezervation-date .date span:last-child:after {
+			display: none;
+		}
+
+		.installment-list .form-check {
+			padding-left: 0;
+		}
+
+		.installment-list input {
+			opacity: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: -1;
+		}
+
+		.installment-list label {
+			background: #eee;
+			padding: 10px;
+			border-radius: 0.25rem;
+			width: 100%;
+			color: #000;
+			opacity: 0.7;
+		}
+
+		.installment-list input:checked+label {
+			background: #039be0;
+			color: #fff;
+			opacity: 1;
+		}
+
+		.payment-succes-card {
+			/*background:#28a745;*/
+			text-align: center;
+		}
+
+		.payment-succes-card i {
+			font-size: 5rem;
+			color: #039be0;
+			padding: 10px;
+			border: 10px solid #039be0;
+			border-radius: 100%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		.payment-succes-card a,
+		.payment-succes-card p {
+			color: inherit;
+			font-size: 1rem;
+			margin-bottom: 30px;
+		}
+
+		.content-bordered-blue.card {
+			padding: 0;
+		}
+
+		.content-bordered-blue.card .card-header {
+			border-bottom: 1px solid #039be0;
+		}
+
+		.content-bordered-blue {
+			padding: 10px;
+			border: 1px solid #039be0;
+			border-radius: 0.25rem;
+		}
+
+		.content-bordered-red.card {
+			padding: 0;
+		}
+
+		.content-bordered-red.card .card-header {
+			border-bottom: 1px solid #e91e63;
+		}
+
+		.content-bordered-red {
+			padding: 10px;
+			border: 1px solid #e91e63;
+			border-radius: 0.25rem;
+		}
+
+		@media screen and (max-width:1280px) {
+			.payment-form .otel-information img {
+				max-width: 100%;
+			}
+
+			.payment-form .otel-information {
+				flex-direction: column;
+			}
+
+			.payment-card .col-md-3,
+			.payment-card .col-md-9 {
+				max-width: 100%;
+				flex: 0 0 100%;
+			}
+		}
+
+		@media screen and (max-width:1024px) {
+			.dates {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.dates>div {
+				margin-bottom: 10px;
+			}
+		}
+
+		@media screen and (max-width:991px) {
+			.payment-form>.container>.row {
+				flex-direction: column-reverse;
+			}
+
+			.payment-form>.container>.row .col-md-4,
+			.payment-form>.container>.row .col-md-8,
+			.rezervation-summary>.row .col-md-4,
+			.rezervation-summary>.row .col-md-8 {
+				max-width: 100%;
+				flex: 0 0 100%;
+			}
+
+			.rezervation-summary .header {
+				flex-direction: column;
+			}
+		}
+
+		@media screen and (max-width:768px) {
+			.content-bordered-blue {
+				margin-bottom: 10px;
+			}
+
+			.content-bordered-blue>.d-flex {
+				flex-wrap: wrap;
+
+			}
+
+			.content-bordered-blue>.d-flex>div {
+				width: 50% !important;
+				margin-bottom: 10px;
+			}
+			.extra-service{
+				flex-direction: column;
+			}
+			.extra-service button{
+				margin-bottom: 10px;
+			}
+		}
+	</style>
+
+
+
+
+
 
 	<section class="mt-4" id="footer">
 
@@ -1242,6 +2010,7 @@
 	</script>
 
 	<div class="graybg"></div>
+
 
 </body>
 
